@@ -21,7 +21,7 @@ public class ProductRepo implements ProductRepository{
 	}
 	
 public ArrayList getAllProducts() {
-		
+		//return the ArraylList all data to service class
 		return al;
 	}
 	

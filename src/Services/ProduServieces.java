@@ -21,14 +21,15 @@ public class ProduServieces implements ProductServices{
 	}
 	
 	public ArrayList getAllProducts() {
-		
+		//get the all data form the service production class and transfer to the main class
 		ArrayList al=productRepo.getAllProducts();
-		 if(al!=null){
+		if(al!=null) {
 			return al;
-		 }else{
-			 System.out.println("Data is not present in ArrayList.....");
-		 }
-		 
+		}else
+		{
+			return null;
+		}
+		
 	}
 	
 	public ProdModel getProductById(int id) {
