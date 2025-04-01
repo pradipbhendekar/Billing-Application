@@ -15,8 +15,10 @@ public class ClientApplication {
 		ProduServieces produServieces=new ProduServieces();
 
 		do {
-			System.out.println("1:enter the product");
-			System.out.println("2:enter show the all data of ArrayList");
+			System.out.println("1:add the product");
+			System.out.println("2:show the all data of ArrayList");
+			System.out.println("3:search the product by id");
+			System.out.println("4:how many product are present in ArrayList");
 			int choice=sc.nextInt();
 			switch(choice) {
 			
@@ -45,21 +47,44 @@ public class ClientApplication {
 				 ArrayList al=produServieces.getAllProducts();
 				 //chek the data are present in the ArrayList or not
 				 if(al!=null) {
+					
 					 System.out.println("PRODUCT_ID\tPRODUCT_NAME\tPRODUCT_PRICE\tPRODUCT_QUENTITY");
 					 System.out.println("------------------------------------------------------------");
 					 for(Object obj:al) {
 						 ProdModel pm=(ProdModel)obj;
 						 System.out.println(pm.getProdId()+"\t\t"+pm.getProdname()+"\t\t"+pm.getPrice()+"\t\t"+pm.getQty()); 
 					 }
-					 
 				 }
 				 else {
 					 System.out.print("no data available in ArrayList.......");
 				 }
 				 System.out.println("==========================================================================");
 				break;
+			case 3:
+				System.out.println("enter the id to serch the data");
+				int value=sc.nextInt();
+				ProdModel pm=produServieces.getProductById(value);	
+				System.out.println("============================================================================");
+				if(pm!=null) {
+					System.out.println("PRODUCT_ID\tPRODUCT_NAME\tPRODUCT_PRICE\tPRODUCT_QUENTITY");
+					System.out.println("------------------------------------------------------------");
+				System.out.println(pm.getProdId()+"\t\t"+pm.getProdname()+"\t\t"+pm.getPrice()+"\t\t"+pm.getQty());
+				}else {
+					System.out.println("data are not present in ArrayList......");
+				}
+				 System.out.println("============================================================================");
+				break;
+			case 4:
+				// this is return the how many produce are present in ArrayList
+				int count=produServieces.totalCount();
+				if(count<1) {
+					System.out.println("the ArrayList is empty");
+				}else {
+					System.out.println(count);
+					
+				}
 				
-				
+				break;
 				
 			}
 		

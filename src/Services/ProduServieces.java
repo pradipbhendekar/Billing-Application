@@ -1,6 +1,7 @@
 package Services;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import Model.ProdModel;
 import Repository.ProductRepo;
@@ -23,21 +24,23 @@ public class ProduServieces implements ProductServices{
 	public ArrayList getAllProducts() {
 		//get the all data form the service production class and transfer to the main class
 		ArrayList al=productRepo.getAllProducts();
-		if(al!=null) {
-			return al;
-		}else
-		{
-			return null;
-		}
-		
+		 Iterator i=al.iterator();
+		 if(i.hasNext()) {
+			 return al;
+		 }
+		 else {
+			return  null;
+		 }
 	}
 	
 	public ProdModel getProductById(int id) {
-		return null;
+		ProdModel pm=productRepo.getProductById(id);
+		 return pm;
 	}
 	
 	public int totalCount() {
-		return 0;
+		int count=productRepo.totalCount();
+		return count;
 	}
 
 }

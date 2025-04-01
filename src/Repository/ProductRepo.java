@@ -1,6 +1,7 @@
 package Repository;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import Model.ProdModel;
 
@@ -26,11 +27,26 @@ public ArrayList getAllProducts() {
 	}
 	
 	public ProdModel getProductById(int id) {
-		return null;
+		ProdModel p = null;
+		Iterator i=al.iterator();
+		while(i.hasNext()) {
+			Object obj=i.next();
+			 p=(ProdModel)obj;
+			if(p.equals(id)) {
+				return p;
+			}
+		}
+		return p;
 	}
 	
 	public int totalCount() {
-		return 0;
+		int count=0;
+		Iterator i=al.iterator();
+		while(i.hasNext()) {
+			Object obj=i.next();
+			count++;
+		}
+		return count;
 	}
 
 }
